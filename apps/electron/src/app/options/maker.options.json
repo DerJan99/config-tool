@@ -1,0 +1,21 @@
+{
+  "$schema": "../../../../../node_modules/nx-electron/src/validation/maker.schema.json",
+  "win": {
+    "target": ["portable"],
+    "icon": "/apps/electron/src/assets/antrago-64x64.ico"
+  },
+  "linux": {
+    "target": ["deb"],
+    "icon": "/apps/electron/src/assets/antrago-64x64.png"
+  },
+  "mac": {
+    "target": ["dmg"],
+    "icon": "/apps/electron/src/assets/antrago-64x64.icns"
+  },
+  "nsis": {
+    "language": "1031",
+    "installerIcon": "/apps/electron/src/assets/antrago-64x64.ico"
+  },
+  "appId": "antrago.jvs.config-tool",
+  "productName": "Config-Tool Prototype"
+}
