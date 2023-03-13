@@ -3,6 +3,8 @@
   "projects": {
     "electron": "apps/electron",
     "frontend": "apps/frontend",
-    "frontend-e2e": "apps/frontend-e2e"
+    "frontend-e2e": "apps/frontend-e2e",
+    "ui-common": "libs/ui/common",
+    "ui-views": "libs/ui/views"
   }
 }

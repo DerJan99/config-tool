@@ -14,7 +14,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@config-tool/ui/common": ["libs/ui/common/src/index.ts"],
+      "@config-tool/ui/views": ["libs/ui/views/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
