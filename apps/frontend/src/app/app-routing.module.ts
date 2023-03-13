@@ -1,10 +1,10 @@
 import {NgModule} from "@angular/core";
 import {RouterModule, Routes} from "@angular/router";
-import {NxWelcomeComponent} from "./nx-welcome.component";
+import {HomeComponent} from "@config-tool/ui/views";
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', component: NxWelcomeComponent },
-  { path: '**', pathMatch: 'full', component: NxWelcomeComponent },
+  { path: '', pathMatch: 'full', component: HomeComponent },
+  { path: '**', pathMatch: 'full', component: HomeComponent },
 ]
 
 @NgModule({
