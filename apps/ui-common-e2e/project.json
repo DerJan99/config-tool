@@ -1,0 +1,28 @@
+{
+  "root": "apps/ui-common-e2e",
+  "sourceRoot": "apps/ui-common-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/ui-common-e2e/cypress.json",
+        "devServerTarget": "ui-common:storybook"
+      },
+      "configurations": {
+        "ci": {
+          "devServerTarget": "ui-common:storybook:ci"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/ui-common-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["ui-common"]
+}

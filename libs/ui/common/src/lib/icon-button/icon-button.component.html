@@ -1,0 +1,9 @@
+<button
+  mat-icon-button
+  [color]="this.color"
+  [disabled]="this.disabled"
+  (click)="this.handleClickEvent($event)">
+    <mat-icon>
+      <ng-content></ng-content>
+    </mat-icon>
+</button>
