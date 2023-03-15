@@ -1,17 +1,10 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  Input,
-  Output,
-} from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
 
 @Component({
   selector: 'config-tool-icon-button',
   templateUrl: './icon-button.component.html',
   styleUrls: ['./icon-button.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class IconButtonComponent {
   @Input() color: ThemePalette = 'primary';

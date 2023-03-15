@@ -1,0 +1,73 @@
+.mat-toolbar {
+  background-image: url("/assets/logo/triangles_right.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-width: fit-content;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.toolbar {
+  border-radius: 10px;
+  background-color: #039ec2;
+  color: white;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .toolbar-row {
+    flex-direction: column;
+  }
+}
+
+.footer {
+  border-radius: 10px;
+  height: 2rem;
+  background-color: #039ec2;
+  color: white;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidenav-container {
+  height: 100%;
+
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+}
+
+.nav-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.primary-background-color {
+  background-color: #00a8cd;
+}
+
+.grey-background-color {
+  background-color: #d8d8d8;
+}
+
+.white-color {
+  color: white;
+}
+
+.grey-color {
+  color: #d8d8d8;
+}
