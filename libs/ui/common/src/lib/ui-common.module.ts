@@ -8,16 +8,29 @@ import { RaisedButtonComponent } from './raised-button/raised-button.component';
 import { BasicButtonComponent } from './basic-button/basic-button.component';
 import { StrokedButtonComponent } from './stroked-button/stroked-button.component';
 import { IconButtonComponent } from './icon-button/icon-button.component';
+import { ExpansionPanelComponent } from './expansion-panel/expansion-panel.component';
+import { HelpTooltipComponent } from './help-tooltip/help-tooltip.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
-  imports: [CommonModule, MaterialModule],
+  imports: [CommonModule, MaterialModule, MatTooltipModule],
   declarations: [
     SidenavComponent,
     RaisedButtonComponent,
     BasicButtonComponent,
     StrokedButtonComponent,
     IconButtonComponent,
+    ExpansionPanelComponent,
+    HelpTooltipComponent,
   ],
-  exports: [SidenavComponent, RaisedButtonComponent],
+  exports: [
+    SidenavComponent,
+    RaisedButtonComponent,
+    BasicButtonComponent,
+    StrokedButtonComponent,
+    IconButtonComponent,
+    ExpansionPanelComponent,
+    HelpTooltipComponent,
+  ],
 })
 export class UiCommonModule {}
