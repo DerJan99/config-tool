@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 import { MaterialModule } from '@config-tool/shared/modules';
 
@@ -10,10 +11,9 @@ import { StrokedButtonComponent } from './stroked-button/stroked-button.componen
 import { IconButtonComponent } from './icon-button/icon-button.component';
 import { ExpansionPanelComponent } from './expansion-panel/expansion-panel.component';
 import { HelpTooltipComponent } from './help-tooltip/help-tooltip.component';
-import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
-  imports: [CommonModule, MaterialModule, MatTooltipModule],
+  imports: [CommonModule, MaterialModule, RouterModule],
   declarations: [
     SidenavComponent,
     RaisedButtonComponent,
