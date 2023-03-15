@@ -1,4 +1,4 @@
-const rootMain = require('../../../.storybook/main');
+const rootMain = require('../../../../.storybook/main');
 
 module.exports = {
   ...rootMain,
@@ -7,12 +7,12 @@ module.exports = {
 
   stories: [
     ...rootMain.stories,
-    '../src/app/**/*.stories.@(js|jsx|ts|tsx)',
-    "../../../libs/**/*.stories.@(js|jsx|ts|tsx)"
+    '../src/lib/**/*.stories.mdx',
+    '../src/lib/**/*.stories.@(js|jsx|ts|tsx)',
   ],
   addons: [...rootMain.addons],
   webpackFinal: async (config, { configType }) => {
-    // apply any global webpack configs that might have been specified in .storybook/main.ts
+    // apply any global webpack configs that might have been specified in .storybook/main.js
     if (rootMain.webpackFinal) {
       config = await rootMain.webpackFinal(config, { configType });
     }

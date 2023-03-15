@@ -1,0 +1,16 @@
+<mat-expansion-panel
+  [disabled]="this.disabled"
+  [expanded]="this.expanded"
+  (opened)="this.expandedChange.emit(true)"
+  (closed)="this.expandedChange.emit(false)">
+  <mat-expansion-panel-header class="header-alignment">
+    <mat-panel-title>
+      {{this.title}}
+    </mat-panel-title>
+    <mat-panel-description>
+      {{this.description}}
+      <mat-icon>{{this.suffixIcon}}</mat-icon>
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <ng-content></ng-content>
+</mat-expansion-panel>

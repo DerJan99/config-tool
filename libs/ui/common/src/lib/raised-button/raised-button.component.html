@@ -1,0 +1,7 @@
+<button
+  mat-raised-button
+  [color]="this.color"
+  [disabled]="this.disabled"
+  (click)="this.handleClickEvent($event)">
+    <ng-content></ng-content>
+</button>

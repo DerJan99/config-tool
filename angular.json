@@ -4,7 +4,9 @@
     "electron": "apps/electron",
     "frontend": "apps/frontend",
     "frontend-e2e": "apps/frontend-e2e",
+    "shared-modules": "libs/shared/modules",
     "ui-common": "libs/ui/common",
+    "ui-common-e2e": "apps/ui-common-e2e",
     "ui-views": "libs/ui/views"
   }
 }

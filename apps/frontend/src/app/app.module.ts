@@ -7,9 +7,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {UiCommonModule} from "@config-tool/ui/common";
 
-import {MatButtonModule} from "@angular/material/button";
-
-
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -18,8 +15,6 @@ import {MatButtonModule} from "@angular/material/button";
     BrowserAnimationsModule,
 
     UiCommonModule,
-
-    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
