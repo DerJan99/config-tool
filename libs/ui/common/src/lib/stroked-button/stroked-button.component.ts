@@ -1,17 +1,10 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  Input,
-  Output,
-} from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
 
 @Component({
   selector: 'config-tool-stroked-button',
   templateUrl: './stroked-button.component.html',
   styleUrls: ['./stroked-button.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class StrokedButtonComponent {
   @Input() color: ThemePalette = 'primary';
