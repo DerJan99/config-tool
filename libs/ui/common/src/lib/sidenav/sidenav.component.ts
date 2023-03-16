@@ -1,5 +1,6 @@
 import { Component, isDevMode } from '@angular/core';
-import { ElectronService } from 'ngx-electron';
+
+import { ElectronIpcService } from '@config-tool/shared/services';
 
 @Component({
   selector: 'config-tool-sidenav',
@@ -7,7 +8,7 @@ import { ElectronService } from 'ngx-electron';
   styleUrls: ['./sidenav.component.scss'],
 })
 export class SidenavComponent {
-  private electronService = new ElectronService();
+  constructor(private ipcRenderer: ElectronIpcService) {}
 
   public iconObj = {
     open: {
@@ -22,7 +23,7 @@ export class SidenavComponent {
   public devToolsState = false;
 
   public toggleDevTools(): void {
-    this.electronService.ipcRenderer.send('dev-tools', !this.devToolsState);
+    this.ipcRenderer.toggleDevTools(!this.devToolsState);
     this.devToolsState = !this.devToolsState;
   }
 

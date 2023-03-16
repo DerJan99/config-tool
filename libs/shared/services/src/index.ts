@@ -1,1 +1,1 @@
-export * from './lib/shared-services';
+export * from './lib/electron-ipc.service';
