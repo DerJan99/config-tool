@@ -12,6 +12,14 @@
           <mat-icon matListIcon>home</mat-icon>
           <span>Startseite</span>
         </a>
+        <ng-container *ngIf="this.isProduction()">
+          <a mat-list-item class="white-color" (click)="this.toggleDevTools()">
+            <mat-icon matListIcon *ngIf="!this.devToolsState">code</mat-icon>
+            <mat-icon matListIcon *ngIf="this.devToolsState">code_off</mat-icon>
+            <span *ngIf="!this.devToolsState">DevTools öffnen [DEBUG]</span>
+            <span *ngIf="this.devToolsState">DevTools schließen [DEBUG]</span>
+          </a>
+        </ng-container>
         <h2 matSubheader class="grey-color">Konfiguration</h2>
         <a mat-list-item routerLink="/details" class="white-color">
           <mat-icon matListIcon>construction</mat-icon>

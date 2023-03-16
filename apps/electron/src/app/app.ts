@@ -1,4 +1,4 @@
-import {BrowserWindow, shell, screen} from 'electron';
+import { BrowserWindow, screen, shell } from 'electron';
 import { rendererAppName, rendererAppPort } from './constants';
 import { environment } from '../environments/environment';
 import { join } from 'path';
@@ -87,7 +87,6 @@ export default class App {
     //     App.onRedirect(event, url);
     // });
 
-    App.mainWindow.webContents.openDevTools();
     // Emitted when the window is closed.
     App.mainWindow.on('closed', () => {
       // Dereference the window object, usually you would store windows
