@@ -1,15 +1,21 @@
 {
   "$schema": "../../../../../node_modules/nx-electron/src/validation/maker.schema.json",
   "win": {
-    "target": ["portable"],
+    "target": [
+      "portable"
+    ],
     "icon": "/apps/electron/src/assets/antrago-64x64.ico"
   },
   "linux": {
-    "target": ["deb"],
+    "target": [
+      "deb"
+    ],
     "icon": "/apps/electron/src/assets/antrago-64x64.png"
   },
   "mac": {
-    "target": ["dmg"],
+    "target": [
+      "dmg"
+    ],
     "icon": "/apps/electron/src/assets/antrago-64x64.icns"
   },
   "nsis": {
@@ -17,5 +23,5 @@
     "installerIcon": "/apps/electron/src/assets/antrago-64x64.ico"
   },
   "appId": "antrago.jvs.config-tool",
-  "productName": "Config-Tool Prototype"
+  "productName": "ANTRAGO web konfiguration"
 }

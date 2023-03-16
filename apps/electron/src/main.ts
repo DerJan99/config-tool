@@ -1,9 +1,9 @@
 import SquirrelEvents from './app/events/squirrel.events';
 import ElectronEvents from './app/events/electron.events';
-import {app, BrowserWindow, dialog, ipcMain} from 'electron';
+import { app, BrowserWindow, dialog, ipcMain } from 'electron';
 import App from './app/app';
 import * as path from 'path';
-import * as fs from "fs";
+import * as fs from 'fs';
 
 export default class Main {
   static initialize() {
@@ -38,56 +38,71 @@ ipcMain.on('file-request', (event) => {
   // If the platform is 'win32' or 'Linux'
   if (process.platform !== 'darwin') {
     // Resolves to a Promise<Object>
-    dialog.showOpenDialog({
-      title: 'Datei auswählen',
-      defaultPath: path.join(__dirname, '../assets/'),
-      buttonLabel: 'Öffnen',
-      // Restricting the user to only Text Files.
-      filters: [
-        {
-          name: 'JSON',
-          extensions: ['json']
-        }, ],
-      // Specifying the File Selector Property
-      properties: ['openFile']
-    }).then(file => {
-      // Stating whether dialog operation was
-      // cancelled or not.
-      console.log(file.canceled);
-      if (!file.canceled) {
-        const filepath = file.filePaths[0].toString();
-        const fileContent = fs.readFileSync(filepath, 'utf-8');
-        console.log(filepath);
-        event.reply('file', fileContent);
-      }
-    }).catch(err => {
-      console.log(err)
-    });
-  }
-  else {
+    dialog
+      .showOpenDialog({
+        title: 'Datei auswählen',
+        defaultPath: path.join(__dirname, '../assets/'),
+        buttonLabel: 'Öffnen',
+        // Restricting the user to only Text Files.
+        filters: [
+          {
+            name: 'JSON',
+            extensions: ['json'],
+          },
+        ],
+        // Specifying the File Selector Property
+        properties: ['openFile'],
+      })
+      .then((file) => {
+        // Stating whether dialog operation was
+        // cancelled or not.
+        console.log(file.canceled);
+        if (!file.canceled) {
+          const filepath = file.filePaths[0].toString();
+          const fileContent = fs.readFileSync(filepath, 'utf-8');
+          console.log(filepath);
+          event.reply('file', fileContent);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  } else {
     // If the platform is 'darwin' (macOS)
-    dialog.showOpenDialog({
-      title: 'Datei auswählen',
-      defaultPath: path.join(__dirname, '../assets/'),
-      buttonLabel: 'Öffnen',
-      filters: [
-        {
-          name: 'JSON',
-          extensions: ['json']
-        }, ],
-      // Specifying the File Selector and Directory
-      // Selector Property In macOS
-      properties: ['openFile', 'openDirectory']
-    }).then(file => {
-      console.log(file.canceled);
-      if (!file.canceled) {
-        const filepath = file.filePaths[0].toString();
-        const fileContent = fs.readFileSync(filepath, 'utf-8');
-        console.log(filepath);
-        event.reply('file', fileContent);
-      }
-    }).catch(err => {
-      console.log(err)
-    });
+    dialog
+      .showOpenDialog({
+        title: 'Datei auswählen',
+        defaultPath: path.join(__dirname, '../assets/'),
+        buttonLabel: 'Öffnen',
+        filters: [
+          {
+            name: 'JSON',
+            extensions: ['json'],
+          },
+        ],
+        // Specifying the File Selector and Directory
+        // Selector Property In macOS
+        properties: ['openFile', 'openDirectory'],
+      })
+      .then((file) => {
+        console.log(file.canceled);
+        if (!file.canceled) {
+          const filepath = file.filePaths[0].toString();
+          const fileContent = fs.readFileSync(filepath, 'utf-8');
+          console.log(filepath);
+          event.reply('file', fileContent);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+});
+
+ipcMain.on('dev-tools', (event, state: boolean) => {
+  if (state) {
+    BrowserWindow.getFocusedWindow().webContents.openDevTools();
+  } else {
+    BrowserWindow.getFocusedWindow().webContents.closeDevTools();
   }
 });

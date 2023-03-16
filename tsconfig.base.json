@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@config-tool/shared/modules": ["libs/shared/modules/src/index.ts"],
+      "@config-tool/shared/services": ["libs/shared/services/src/index.ts"],
       "@config-tool/ui/common": ["libs/ui/common/src/index.ts"],
       "@config-tool/ui/views": ["libs/ui/views/src/index.ts"]
     }
