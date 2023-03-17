@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { ElectronService } from 'ngx-electron';
 
 @Injectable({
@@ -21,5 +21,13 @@ export class ElectronIpcService {
 
   public toggleDevTools(state: boolean): void {
     this.send('dev-tools', state);
+  }
+
+  public openFileExplorerWindows(): void {
+    const emitter = new EventEmitter<string>();
+    this.send('file-request');
+    this.listen('file', (event, fileContent: string) => {
+      return emitter.emit(fileContent);
+    });
   }
 }
