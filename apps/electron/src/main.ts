@@ -42,7 +42,7 @@ ipcMain.on('file-request', (event) => {
       .showOpenDialog({
         title: 'Datei auswählen',
         defaultPath: path.join(__dirname, '../assets/'),
-        buttonLabel: 'Öffnen',
+        buttonLabel: 'Auswählen',
         // Restricting the user to only Text Files.
         filters: [
           {
@@ -73,7 +73,7 @@ ipcMain.on('file-request', (event) => {
       .showOpenDialog({
         title: 'Datei auswählen',
         defaultPath: path.join(__dirname, '../assets/'),
-        buttonLabel: 'Öffnen',
+        buttonLabel: 'Auswählen',
         filters: [
           {
             name: 'JSON',
