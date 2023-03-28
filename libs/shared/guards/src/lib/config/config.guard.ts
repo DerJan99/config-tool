@@ -16,7 +16,7 @@ export class ConfigGuard implements CanActivate {
   canActivate(): boolean {
     if (this.sessionStorage.getItem('config')) return true;
 
-    this.router.navigate(['/load-config']);
+    this.router.navigate(['/read-config']);
     this.snackBar.open('Bitte zuerst die antrago-config.json einlesen', 'OK', {
       duration: 5000,
     });

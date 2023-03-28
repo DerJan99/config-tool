@@ -5,12 +5,15 @@ import {
   ApiConfigComponent,
   EventDetailsComponent,
   HomeComponent,
+  ReadConfigComponent,
 } from '@config-tool/ui/views';
 import { ConfigGuard } from '@config-tool/shared/guards';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
   { path: 'home', pathMatch: 'full', component: HomeComponent },
+
+  { path: 'read-config', pathMatch: 'full', component: ReadConfigComponent },
 
   {
     path: 'details-config',
