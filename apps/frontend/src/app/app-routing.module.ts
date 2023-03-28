@@ -11,8 +11,12 @@ const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
   { path: 'home', pathMatch: 'full', component: HomeComponent },
 
-  { path: 'details', pathMatch: 'full', component: EventDetailsComponent },
-  { path: 'api', pathMatch: 'full', component: ApiConfigComponent },
+  {
+    path: 'details-config',
+    pathMatch: 'full',
+    component: EventDetailsComponent,
+  },
+  { path: 'api-config', pathMatch: 'full', component: ApiConfigComponent },
 ];
 
 @NgModule({
