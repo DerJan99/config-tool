@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@config-tool/shared/guards": ["libs/shared/guards/src/index.ts"],
       "@config-tool/shared/modules": ["libs/shared/modules/src/index.ts"],
       "@config-tool/shared/services": ["libs/shared/services/src/index.ts"],
       "@config-tool/ui/common": ["libs/ui/common/src/index.ts"],
