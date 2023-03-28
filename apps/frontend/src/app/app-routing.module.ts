@@ -6,6 +6,7 @@ import {
   EventDetailsComponent,
   HomeComponent,
 } from '@config-tool/ui/views';
+import { ConfigGuard } from '@config-tool/shared/guards';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
@@ -15,8 +16,14 @@ const routes: Routes = [
     path: 'details-config',
     pathMatch: 'full',
     component: EventDetailsComponent,
+    canActivate: [ConfigGuard],
   },
-  { path: 'api-config', pathMatch: 'full', component: ApiConfigComponent },
+  {
+    path: 'api-config',
+    pathMatch: 'full',
+    component: ApiConfigComponent,
+    canActivate: [ConfigGuard],
+  },
 ];
 
 @NgModule({
