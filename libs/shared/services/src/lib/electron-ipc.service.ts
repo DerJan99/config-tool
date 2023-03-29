@@ -1,5 +1,6 @@
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { ElectronService } from 'ngx-electron';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -13,21 +14,23 @@ export class ElectronIpcService {
     }
   }
 
-  private listen(channel: string, listener: (...args: any) => void): void {
+  private listen(channel: string): Observable<string> {
+    const subject = new Subject<string>();
     if (this.electronService) {
-      this.electronService.on(channel, listener);
+      this.electronService.on(channel, (event, fileContent: string) => {
+        subject.next(fileContent);
+        subject.complete();
+      });
     }
+    return subject.asObservable();
   }
 
   public toggleDevTools(state: boolean): void {
     this.send('dev-tools', state);
   }
 
-  public openFileExplorerWindows(): void {
-    const emitter = new EventEmitter<string>();
+  public openFileExplorerWindows(): Observable<string> {
     this.send('file-request');
-    this.listen('file', (event, fileContent: string) => {
-      return emitter.emit(fileContent);
-    });
+    return this.listen('file');
   }
 }

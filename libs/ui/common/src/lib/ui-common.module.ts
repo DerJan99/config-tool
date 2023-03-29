@@ -11,6 +11,7 @@ import { StrokedButtonComponent } from './stroked-button/stroked-button.componen
 import { IconButtonComponent } from './icon-button/icon-button.component';
 import { ExpansionPanelComponent } from './expansion-panel/expansion-panel.component';
 import { HelpTooltipComponent } from './help-tooltip/help-tooltip.component';
+import { ReadConfigButtonComponent } from './read-config-button/read-config-button.component';
 
 @NgModule({
   imports: [CommonModule, MaterialModule, RouterModule],
@@ -22,6 +23,7 @@ import { HelpTooltipComponent } from './help-tooltip/help-tooltip.component';
     IconButtonComponent,
     ExpansionPanelComponent,
     HelpTooltipComponent,
+    ReadConfigButtonComponent,
   ],
   exports: [
     SidenavComponent,
@@ -31,6 +33,7 @@ import { HelpTooltipComponent } from './help-tooltip/help-tooltip.component';
     IconButtonComponent,
     ExpansionPanelComponent,
     HelpTooltipComponent,
+    ReadConfigButtonComponent,
   ],
 })
 export class UiCommonModule {}
