@@ -2,9 +2,9 @@ import {
   AfterViewInit,
   ChangeDetectionStrategy,
   Component,
-  OnInit,
 } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { SessionStorageService } from '@config-tool/shared/services';
 
 interface IApiConfig {
   value: string;
@@ -17,10 +17,12 @@ interface IApiConfig {
   styleUrls: ['./api-config.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ApiConfigComponent implements OnInit, AfterViewInit {
-  public apiConfig: IApiConfig[] = [
-    { value: 'antrago', viewValue: 'Antrago' },
-    { value: 'web-api', viewValue: 'Web-API' },
+export class ApiConfigComponent implements AfterViewInit {
+  public passwordInputType = true;
+  public apiConfigSelectOptions: IApiConfig[] = [
+    { value: 'ANTRAGO_BACKEND', viewValue: 'Antrago' },
+    { value: 'WEB_API', viewValue: 'Web-API' },
+    { value: 'NONE', viewValue: 'Kein Backend' },
   ];
 
   public formGroup: FormGroup = new FormGroup({
@@ -35,13 +37,20 @@ export class ApiConfigComponent implements OnInit, AfterViewInit {
     rightsGroup: new FormControl(''),
   });
 
-  ngOnInit() {
-    this.formGroup.patchValue({});
+  constructor(private sessionStorage: SessionStorageService) {
+    const serializedConfig = this.sessionStorage.getItem('antrago-config');
+    if (serializedConfig) {
+      this.formGroup.patchValue(JSON.parse(serializedConfig).api);
+    }
   }
 
   ngAfterViewInit(): void {
     this.formGroup.valueChanges.subscribe((value) => {
       console.log(value);
     });
+  }
+
+  public togglePasswordInputType(): void {
+    this.passwordInputType = !this.passwordInputType;
   }
 }

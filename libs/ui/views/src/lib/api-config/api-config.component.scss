@@ -5,8 +5,12 @@
 .api-form {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   justify-content: flex-start;
 
   width: 20rem;
 }
 
+.textarea {
+  height: 10rem;
+}

@@ -17,8 +17,9 @@
 
   <mat-form-field appearance="fill">
     <mat-label>API-Typ</mat-label>
-    <mat-select formControlName="type" [value]="apiConfig[0].viewValue">
-      <mat-option *ngFor="let configs of apiConfig" [value]="configs.value">{{configs.viewValue}}</mat-option>
+    <mat-select formControlName="type" [value]="apiConfigSelectOptions[0].viewValue">
+      <mat-option *ngFor="let configs of apiConfigSelectOptions"
+                  [value]="configs.value">{{configs.viewValue}}</mat-option>
     </mat-select>
   </mat-form-field>
 
@@ -40,7 +41,10 @@
 
   <mat-form-field>
     <mat-label>Passwort</mat-label>
-    <input matInput #password formControlName="password" type="text"/>
+    <input matInput #password formControlName="password" [type]="passwordInputType ? 'password' : 'text'"/>
+    <button matSuffix mat-icon-button (click)="togglePasswordInputType()">
+      <mat-icon>{{passwordInputType ? "visibility_off" : "visibility"}}</mat-icon>
+    </button>
     <button *ngIf="password" matSuffix mat-icon-button (click)="password.value = ''">
       <mat-icon>close</mat-icon>
     </button>
@@ -48,7 +52,7 @@
 
   <mat-form-field>
     <mat-label>Bearer-Token</mat-label>
-    <textarea matInput #token formControlName="token" type="text"></textarea>
+    <textarea matInput #token formControlName="token" type="text" class="textarea"></textarea>
     <button *ngIf="token" matSuffix mat-icon-button (click)="token.value = ''">
       <mat-icon>close</mat-icon>
     </button>

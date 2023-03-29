@@ -33,7 +33,7 @@ export class ReadConfigButtonComponent {
 
   private rerouteToOriginalView(): void {
     this.activatedRoute.queryParams.subscribe((params) => {
-      this.router.navigate([params['returnUrl']]);
+      this.router.navigate([params['returnUrl']]).then();
     });
   }
 }
