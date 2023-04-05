@@ -1,16 +1,29 @@
-.title {
-  margin-bottom: 2rem;
+.title-bar-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+
+  .title {
+    margin-bottom: 2rem;
+  }
 }
 
 .api-form {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: flex-start;
 
-  width: 20rem;
+  width: 100%;
+}
+
+.sub-form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 .textarea {
-  height: 10rem;
+  height: 5rem;
 }
