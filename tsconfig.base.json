@@ -10,17 +10,34 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": ["es2017", "dom"],
+    "lib": [
+      "es2017",
+      "dom"
+    ],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
+    "strictNullChecks": false,
     "baseUrl": ".",
     "paths": {
-      "@config-tool/shared/guards": ["libs/shared/guards/src/index.ts"],
-      "@config-tool/shared/modules": ["libs/shared/modules/src/index.ts"],
-      "@config-tool/shared/services": ["libs/shared/services/src/index.ts"],
-      "@config-tool/ui/common": ["libs/ui/common/src/index.ts"],
-      "@config-tool/ui/views": ["libs/ui/views/src/index.ts"]
+      "@config-tool/shared/guards": [
+        "libs/shared/guards/src/index.ts"
+      ],
+      "@config-tool/shared/modules": [
+        "libs/shared/modules/src/index.ts"
+      ],
+      "@config-tool/shared/services": [
+        "libs/shared/services/src/index.ts"
+      ],
+      "@config-tool/ui/common": [
+        "libs/ui/common/src/index.ts"
+      ],
+      "@config-tool/ui/views": [
+        "libs/ui/views/src/index.ts"
+      ]
     }
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": [
+    "node_modules",
+    "tmp"
+  ]
 }

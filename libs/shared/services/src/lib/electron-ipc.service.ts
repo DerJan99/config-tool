@@ -31,6 +31,11 @@ export class ElectronIpcService {
 
   public openFileExplorerWindows(): Observable<string> {
     this.send('file-request');
-    return this.listen('file');
+    return this.listen('file-request');
+  }
+
+  public saveFileExplorerWindows(fileContent: string): Observable<string> {
+    this.send('file-save', fileContent);
+    return this.listen('file-save');
   }
 }

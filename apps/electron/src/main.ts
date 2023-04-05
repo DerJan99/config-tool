@@ -34,7 +34,8 @@ Main.initialize();
 Main.bootstrapApp();
 Main.bootstrapAppEvents();
 
-ipcMain.on('file-request', (event) => {
+// File-Request Windows
+ipcMain.once('file-request', (event) => {
   // If the platform is 'win32' or 'Linux'
   if (process.platform !== 'darwin') {
     // Resolves to a Promise<Object>
@@ -61,7 +62,7 @@ ipcMain.on('file-request', (event) => {
           const filepath = file.filePaths[0].toString();
           const fileContent = fs.readFileSync(filepath, 'utf-8');
           console.log(filepath);
-          event.reply('file', fileContent);
+          event.reply('file-request', fileContent);
         }
       })
       .catch((err) => {
@@ -90,7 +91,7 @@ ipcMain.on('file-request', (event) => {
           const filepath = file.filePaths[0].toString();
           const fileContent = fs.readFileSync(filepath, 'utf-8');
           console.log(filepath);
-          event.reply('file', fileContent);
+          event.reply('file-request', fileContent);
         }
       })
       .catch((err) => {
@@ -99,6 +100,29 @@ ipcMain.on('file-request', (event) => {
   }
 });
 
+ipcMain.on('file-save', (event, fileContent: string) => {
+  dialog
+    .showSaveDialog({
+      title: 'Speichern unter',
+      defaultPath: 'antrago-config.json',
+      buttonLabel: 'Speichern',
+      filters: [
+        {
+          name: 'JSON',
+          extensions: ['json'],
+        },
+      ],
+      properties: [],
+    })
+    .then((returnValue) => {
+      event.reply('file-save', returnValue);
+      if (!returnValue.canceled) {
+        fs.writeFileSync(returnValue.filePath, fileContent);
+      }
+    });
+});
+
+// Toggle DevTools
 ipcMain.on('dev-tools', (event, state: boolean) => {
   if (state) {
     BrowserWindow.getFocusedWindow().webContents.openDevTools();
