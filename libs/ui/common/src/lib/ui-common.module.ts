@@ -12,6 +12,7 @@ import { IconButtonComponent } from './icon-button/icon-button.component';
 import { ExpansionPanelComponent } from './expansion-panel/expansion-panel.component';
 import { HelpTooltipComponent } from './help-tooltip/help-tooltip.component';
 import { ReadConfigButtonComponent } from './read-config-button/read-config-button.component';
+import { SaveButtonComponent } from './save-button/save-button.component';
 
 @NgModule({
   imports: [CommonModule, MaterialModule, RouterModule],
@@ -24,6 +25,7 @@ import { ReadConfigButtonComponent } from './read-config-button/read-config-butt
     ExpansionPanelComponent,
     HelpTooltipComponent,
     ReadConfigButtonComponent,
+    SaveButtonComponent,
   ],
   exports: [
     SidenavComponent,
@@ -34,6 +36,7 @@ import { ReadConfigButtonComponent } from './read-config-button/read-config-butt
     ExpansionPanelComponent,
     HelpTooltipComponent,
     ReadConfigButtonComponent,
+    SaveButtonComponent,
   ],
 })
 export class UiCommonModule {}

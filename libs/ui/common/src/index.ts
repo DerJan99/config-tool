@@ -15,3 +15,5 @@ export * from './lib/sidenav/sidenav.component';
 export * from './lib/stroked-button/stroked-button.component';
 
 export * from './lib/read-config-button/read-config-button.component';
+
+export * from './lib/save-button/save-button.component';
