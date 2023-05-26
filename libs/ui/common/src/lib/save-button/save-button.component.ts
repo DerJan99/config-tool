@@ -8,8 +8,6 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class SaveButtonComponent {
   @Output() public saveEvent: EventEmitter<void> = new EventEmitter();
 
-  constructor() {}
-
   public handleClickEvent(): void {
     this.saveEvent.emit();
   }
