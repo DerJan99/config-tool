@@ -1,8 +1,4 @@
-import { Component } from '@angular/core';
-import {
-  ElectronIpcService,
-  SessionStorageService,
-} from '@config-tool/shared/services';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'config-tool-save-button',
@@ -10,20 +6,11 @@ import {
   styleUrls: ['./save-button.component.scss'],
 })
 export class SaveButtonComponent {
-  constructor(
-    private ipcRenderer: ElectronIpcService,
-    private sessionStorage: SessionStorageService
-  ) {}
+  @Output() public saveEvent: EventEmitter<void> = new EventEmitter();
+
+  constructor() {}
 
   public handleClickEvent(): void {
-    const config: string = this.sessionStorage.getItem('antrago-config');
-    const prettyPrintedConfig: string = JSON.stringify(
-      JSON.parse(config),
-      null,
-      2
-    );
-
-    if (prettyPrintedConfig)
-      this.ipcRenderer.saveFileExplorerWindows(prettyPrintedConfig);
+    this.saveEvent.emit();
   }
 }

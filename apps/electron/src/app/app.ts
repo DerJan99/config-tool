@@ -65,6 +65,7 @@ export default class App {
     App.mainWindow = new BrowserWindow({
       width: width,
       height: height,
+      resizable: false,
       show: false,
       webPreferences: {
         contextIsolation: false,

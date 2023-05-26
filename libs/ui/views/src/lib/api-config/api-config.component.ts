@@ -4,7 +4,10 @@ import {
   Component,
 } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { SessionStorageService } from '@config-tool/shared/services';
+import {
+  ConfigSaveService,
+  SessionStorageService,
+} from '@config-tool/shared/services';
 
 interface IApiConfig {
   value: string;
@@ -24,20 +27,22 @@ export class ApiConfigComponent implements AfterViewInit {
     { value: 'WEB_API', viewValue: 'Web-API' },
     { value: 'NONE', viewValue: 'Kein Backend' },
   ];
-
   public formGroup: FormGroup = new FormGroup({
-    oauth2: new FormControl({ value: '', disabled: true }),
+    oauth2: new FormControl({ value: false, disabled: true }),
     url: new FormControl(''),
     type: new FormControl(''),
     mandantId: new FormControl(''),
     username: new FormControl(''),
     password: new FormControl(''),
-    token: new FormControl({ value: '', disabled: true }),
+    token: new FormControl({ disabled: true }),
     enrollmentTimeout: new FormControl(''),
     rightsGroup: new FormControl(''),
   });
 
-  constructor(private sessionStorage: SessionStorageService) {
+  constructor(
+    private sessionStorage: SessionStorageService,
+    private saveService: ConfigSaveService
+  ) {
     const serializedConfig = this.sessionStorage.getItem('antrago-config');
     if (serializedConfig) {
       this.formGroup.patchValue(JSON.parse(serializedConfig).api);
@@ -52,5 +57,9 @@ export class ApiConfigComponent implements AfterViewInit {
 
   public togglePasswordInputType(): void {
     this.passwordInputType = !this.passwordInputType;
+  }
+
+  public save(): void {
+    this.saveService.save(this.formGroup.getRawValue(), 'api');
   }
 }

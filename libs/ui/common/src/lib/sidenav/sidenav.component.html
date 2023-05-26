@@ -21,13 +21,13 @@
           </a>
         </ng-container>
         <h2 matSubheader class="grey-color">Konfiguration</h2>
-        <a mat-list-item routerLink="/details-config" class="white-color">
-          <mat-icon matListIcon>construction</mat-icon>
-          <span>Veranstaltungsdetails</span>
-        </a>
         <a mat-list-item routerLink="/api-config" class="white-color">
           <mat-icon matListIcon>webhook</mat-icon>
           <span>API-Konfiguration</span>
+        </a>
+        <a disabled mat-list-item routerLink="/details-config" class="deactivated">
+          <mat-icon matListIcon>construction</mat-icon>
+          <span>Veranstaltungsdetails</span>
         </a>
       </mat-nav-list>
       <div class="spacer"></div>
