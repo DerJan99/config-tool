@@ -1,0 +1,42 @@
+{
+  "projectType": "library",
+  "root": "libs/shared/guards",
+  "sourceRoot": "libs/shared/guards/src",
+  "prefix": "config-tool",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:ng-packagr-lite",
+      "outputs": ["dist/libs/shared/guards"],
+      "options": {
+        "project": "libs/shared/guards/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/shared/guards/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/shared/guards/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/shared/guards"],
+      "options": {
+        "jestConfig": "libs/shared/guards/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/shared/guards/src/**/*.ts",
+          "libs/shared/guards/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

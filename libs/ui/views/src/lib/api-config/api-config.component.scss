@@ -1,0 +1,40 @@
+.title-bar-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+
+  .title {
+    margin-bottom: 2rem;
+  }
+}
+
+.api-form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+
+  width: 100%;
+}
+
+.sub-form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  width: 30%;
+  margin: 1rem;
+}
+
+.textarea {
+  height: 7rem;
+}
+
+.divider-area {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+}

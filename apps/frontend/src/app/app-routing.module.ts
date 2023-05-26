@@ -5,14 +5,28 @@ import {
   ApiConfigComponent,
   EventDetailsComponent,
   HomeComponent,
+  ReadConfigComponent,
 } from '@config-tool/ui/views';
+import { ConfigGuard } from '@config-tool/shared/guards';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
   { path: 'home', pathMatch: 'full', component: HomeComponent },
 
-  { path: 'details', pathMatch: 'full', component: EventDetailsComponent },
-  { path: 'api', pathMatch: 'full', component: ApiConfigComponent },
+  { path: 'read-config', pathMatch: 'full', component: ReadConfigComponent },
+
+  {
+    path: 'details-config',
+    pathMatch: 'full',
+    component: EventDetailsComponent,
+    canActivate: [ConfigGuard],
+  },
+  {
+    path: 'api-config',
+    pathMatch: 'full',
+    component: ApiConfigComponent,
+    canActivate: [ConfigGuard],
+  },
 ];
 
 @NgModule({

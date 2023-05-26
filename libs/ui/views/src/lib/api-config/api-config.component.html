@@ -1,1 +1,85 @@
-<p>api-config works!</p>
+<div class="title-bar-wrapper">
+  <h1 class="title">API-Konfiguration</h1>
+  <config-tool-save-button (saveEvent)="save()"></config-tool-save-button>
+</div>
+<form [formGroup]="this.formGroup" class="api-form">
+  <div class="sub-form">
+    <h2>Optionen</h2>
+    <div class="divider-area">
+      <mat-slide-toggle
+        color="primary"
+        checked="false"
+        formControlName="oauth2">
+        OAuth2
+      </mat-slide-toggle>
+      <mat-form-field appearance="fill">
+        <mat-label>API-Typ</mat-label>
+        <mat-select formControlName="type" [value]="apiConfigSelectOptions[0].viewValue">
+          <mat-option *ngFor="let configs of apiConfigSelectOptions"
+                      [value]="configs.value">{{configs.viewValue}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <mat-form-field>
+      <mat-label>API-URL</mat-label>
+      <input matInput #urlInput formControlName="url" type="text"/>
+      <button *ngIf="urlInput" matSuffix mat-icon-button (click)="urlInput.value = ''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Bearer-Token</mat-label>
+      <textarea matInput #token formControlName="token" type="text" class="textarea"></textarea>
+      <button *ngIf="token" matSuffix mat-icon-button (click)="token.value = ''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+  <div class="sub-form">
+    <h2>Authentifizierung</h2>
+    <mat-form-field>
+      <mat-label>Mandant-ID</mat-label>
+      <input matInput #mandantId formControlName="mandantId" type="text"/>
+      <button *ngIf="mandantId" matSuffix mat-icon-button (click)="mandantId.value = ''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Benutzername</mat-label>
+      <input matInput #username formControlName="username" type="text"/>
+      <button *ngIf="username" matSuffix mat-icon-button (click)="username.value = ''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Passwort</mat-label>
+      <input matInput #password formControlName="password" [type]="passwordInputType ? 'password' : 'text'"/>
+      <button matSuffix mat-icon-button (click)="togglePasswordInputType()">
+        <mat-icon>{{passwordInputType ? "visibility_off" : "visibility"}}</mat-icon>
+      </button>
+      <button *ngIf="password" matSuffix mat-icon-button (click)="password.value = ''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+  <div class="sub-form">
+    <h2>Optionale Informationen</h2>
+    <mat-form-field>
+      <mat-label>Enrollment-Timeout</mat-label>
+      <input matInput #enrollmentTimeout formControlName="enrollmentTimeout" type="text"/>
+      <button *ngIf="enrollmentTimeout" matSuffix mat-icon-button (click)="enrollmentTimeout.value = ''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Rechtegruppe</mat-label>
+      <input matInput #rightsGroup formControlName="rightsGroup" type="text"/>
+      <button *ngIf="rightsGroup" matSuffix mat-icon-button (click)="rightsGroup.value = ''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+</form>
